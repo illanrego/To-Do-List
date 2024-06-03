@@ -73,7 +73,7 @@ body {
   box-shadow: 0 0 0 2px #064281;
 }
 
-.tasks {
+.piadas {
   display: flex;
   flex-direction: column;
   margin: 0 0 2rem;
@@ -83,7 +83,7 @@ body {
   list-style: none;
 }
 
-.task {
+.piada {
   position: relative;
   z-index: 1;
 
@@ -95,19 +95,19 @@ body {
   border-radius: 0.4rem;
 }
 
-.task--done {
+.piada--done {
   opacity: 0.6;
 }
 
-.task__label {
+.piada__label {
   display: block;
 }
 
-.task__checkbox {
+.piada__checkbox {
   display: none;
 }
 
-.task__checkbox-custom {
+.piada__checkbox-custom {
   display: block;
 
   width: 1rem;
@@ -119,29 +119,29 @@ body {
   border-radius: 0.3rem;
 }
 
-.task__checkbox:checked + .task__checkbox-custom {
+.piada__checkbox:checked + .piada__checkbox-custom {
   background-color: black;
 }
 
-.task__text {
+.piada__text {
   margin: 0 1rem;
   flex-grow: 1;
 }
 
-.task__delete {
+.piada__delete {
   margin-left: auto;
 }
 
-.task--done .task__text {
+.piada--done .piada__text {
   text-decoration: line-through;
 }
 
-.create-task {
+.create-piada {
   display: flex;
   flex-direction: column;
 }
 
-.create-task__textarea {
+.create-piada__textarea {
   width: 100%;
   height: 4rem;
   padding: 0.5rem;
@@ -158,7 +158,7 @@ body {
   margin: 0 0 1rem;
 }
 
-.create-task__submit {
+.create-piada__submit {
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
 

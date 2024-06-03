@@ -2,17 +2,17 @@ import LocalStorage from './LocalStorage.js';
 
 const storage = new LocalStorage();
 
-const tasks = storage.tasks;
+const piadas = storage.piadas;
 
-const container = document.querySelector('.tasks');
-const template = document.querySelector('#task');
+const container = document.querySelector('.piadas');
+const template = document.querySelector('#piada');
 
-const createTaskForm = document.querySelector('.create-task');
-const createTaskField = document.querySelector('.create-task__textarea');
-const createTaskButton = document.querySelector('.create-task__submit');
+const createTaskForm = document.querySelector('.create-piada');
+const createTaskField = document.querySelector('.create-piada__textarea');
+const createTaskButton = document.querySelector('.create-piada__submit');
 
-tasks.forEach((data) => {
-  onCreateTask({data});
+piadas.forEach((bit) => {
+  onCreateTask({bit});
 });
 
 createTaskField.addEventListener('input', () => {
@@ -25,55 +25,55 @@ createTaskForm.addEventListener('submit', (e) => {
   const value = createTaskField.value;
 
   if (value) {
-    const data = {
+    const bit = {
       value,
       checked: false
     };
 
-    storage.create(data);
+    storage.create(bit);
 
-    onCreateTask({data});
+    onCreateTask({bit});
 
     createTaskForm.reset();
   }
 });
 
-function onCreateTask({data}) {
+function onCreateTask({bit}) {
   const clone = template.content.cloneNode(true);
 
-  const task = clone.querySelector('.task');
-  const checkbox = clone.querySelector('.task__checkbox');
-  const title = clone.querySelector('.task__text');
-  const del = clone.querySelector('.task__delete');
+  const piada = clone.querySelector('.piada');
+  const checkbox = clone.querySelector('.piada__checkbox');
+  const title = clone.querySelector('.piada__text');
+  const del = clone.querySelector('.piada__delete');
 
-  title.innerHTML = data.value;
-  checkbox.checked = data.checked;
+  title.innerHTML = bit.value;
+  checkbox.checked = bit.checked;
 
-  toggleTaskStatusClass({checked: data.checked, task});
+  toggleTaskStatusClass({checked: bit.checked, piada});
 
   checkbox.addEventListener('input', () => {
-    data.checked = checkbox.checked;
+    bit.checked = checkbox.checked;
 
-    toggleTaskStatusClass({checked: data.checked, task});
+    toggleTaskStatusClass({checked: bit.checked, piada});
 
-    storage.update(data);
+    storage.update(bit);
   });
 
   title.addEventListener('input', () => {
-    data.value = title.innerHTML;
+    bit.value = title.innerHTML;
 
-    storage.update(data);
+    storage.update(bit);
   });
 
   del.addEventListener('click', (e) => {
-    storage.delete(data);
+    storage.delete(bit);
 
-    task.remove();
+    piada.remove();
   });
 
   container.appendChild(clone);
 }
 
-function toggleTaskStatusClass({checked, task}) {
-  task.classList[checked ? 'add' : 'remove']('task--done');
+function toggleTaskStatusClass({checked, piada}) {
+  piada.classList[checked ? 'add' : 'remove']('piada--done');
 }

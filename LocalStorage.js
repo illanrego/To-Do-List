@@ -1,42 +1,42 @@
 export default class LocalStorage {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    this.piadas = JSON.parse(localStorage.getItem('piadas')) || [];
   }
 
-  create(data) {
-    data.token = this.token;
+  create(bit) {
+    bit.token = this.token;
 
-    this.tasks.push(data);
+    this.piadas.push(bit);
 
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    localStorage.setItem('piadas', JSON.stringify(this.piadas));
   }
 
-  update(data) {
-    let index = this.getIndexByToken(data.token);
+  update(bit) {
+    let index = this.getIndexByToken(bit.token);
 
     if (index !== -1) {
-      this.tasks[index] = data;
+      this.piadas[index] = bit;
 
-      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      localStorage.setItem('piadas', JSON.stringify(this.piadas));
     }
   }
 
-  delete(data) {
-    let index = this.getIndexByToken(data.token);
+  delete(bit) {
+    let index = this.getIndexByToken(bit.token);
 
-    console.log(data.token);
-    console.log(this.tasks);
+    console.log(bit.token);
+    console.log(this.piadas);
 
     if (index !== -1) {
-      this.tasks.splice(index, 1);
+      this.piadas.splice(index, 1);
 
-      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+      localStorage.setItem('piadas', JSON.stringify(this.piadas));
     }
   }
 
   getIndexByToken(token) {
-    for (let i = 0; i < this.tasks.length; i++) {
-      if (this.tasks[i].token === token) {
+    for (let i = 0; i < this.piadas.length; i++) {
+      if (this.piadas[i].token === token) {
         return i;
       }
     }

@@ -1,32 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
 <link rel="stylesheet" href="style.css" />
 
-<template id="task">
-  <li class="task tasks__task">
-    <label class="task__label">
-      <input class="task__checkbox" type="checkbox" />
+<template id="piada">
+  <li class="piada piadas__piada">
+    <label class="piada__label">
+      <input class="piada__checkbox" type="checkbox" />
 
-      <span class="task__checkbox-custom"></span>
+      <span class="piada__checkbox-custom"></span>
     </label>
 
-    <p class="task__text" contenteditable></p>
+    <p class="piada__text" contenteditable></p>
 
-    <button class="btn btn--red task__delete" type="button">
-      Delete
+    <button class="btn btn--red piada__delete" type="button">
+      X
     </button>
   </li>
 </template>
 
 <div class="container">
-  <ul class="tasks"></ul>
+  <ul class="piadas"></ul>
 
-  <form class="create-task">
-    <textarea class="create-task__textarea" placeholder="Task title"></textarea>
+  <form class="create-piada">
+    <textarea class="create-piada__textarea" placeholder="Anote a piada aqui"></textarea>
 
-    <button class="btn btn--bg-blue create-task__submit" type="submit" disabled>
-      Create
+    <button class="btn btn--bg-blue create-piada__submit" type="submit" disabled>
+      Salvar
     </button>
   </form>
 </div>
 
 <script src="LocalStorage.js" type="module"></script>
 <script src="script.js" type="module"></script>
+</body>
+</html>
